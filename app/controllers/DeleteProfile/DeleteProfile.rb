@@ -7,7 +7,8 @@ module DeleteProfile
         include ::Hanami::Action
         def call (env)
             response = request.body.read
-            #request.body.rewind
+            response = request.body.rewind
+            response = request.body.read
             puts response
             deleteProfileDetails = JSON.parse(response)
             email = deleteProfileDetails['profileDetails']['email']

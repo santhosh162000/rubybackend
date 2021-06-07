@@ -7,7 +7,8 @@ module UpdateProfile
         include ::Hanami::Action
         def call (env)
             response = request.body.read
-            #request.body.rewind
+            response = request.body.rewind
+            response = request.body.read
             updateDetails = JSON.parse(response)
             name = updateDetails['profileDetails']['name']
             email = updateDetails['profileDetails']['email']
