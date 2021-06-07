@@ -8,7 +8,7 @@ module AddEmp
         def call (env)
             response = request.body.read
             response = request.body.rewind
-            #response = request.body.read
+            response = request.body.read
             signupDetails = JSON.parse(response)
             name = signupDetails['signupDetails']['name']
             email = signupDetails['signupDetails']['email']

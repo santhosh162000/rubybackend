@@ -10,7 +10,7 @@ module SendMail
         def call (env)
             response = request.body.read
             response = request.body.rewind
-            #response = request.body.read
+            response = request.body.read
             emailDetails = JSON.parse(response)
             puts emailDetails
             email = emailDetails['emailDetails']['email']

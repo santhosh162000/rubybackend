@@ -8,7 +8,7 @@ module UpdateProfile
         def call (env)
             response = request.body.read
             response = request.body.rewind
-            #response = request.body.read
+            response = request.body.read
             updateDetails = JSON.parse(response)
             name = updateDetails['profileDetails']['name']
             email = updateDetails['profileDetails']['email']
