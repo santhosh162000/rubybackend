@@ -8,9 +8,7 @@ module SendMail
     class SendMail
         include ::Hanami::Action
         def call (env)
-            response = request.body.read
-            response = request.body.rewind
-            response = request.body.read
+            response = request.env
             emailDetails = JSON.parse(response)
             puts emailDetails
             email = emailDetails['emailDetails']['email']
