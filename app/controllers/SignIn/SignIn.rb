@@ -6,7 +6,9 @@ module SignIn
     class SignIn
         include ::Hanami::Action
         def call (env)
-            response = request.env
+            response = request.body.read
+            response = request.body.rewind
+            #response = request.body.read
             signinDetails = JSON.parse(response)
             email = signinDetails['signinDetails']['email']
             password = signinDetails['signinDetails']['password']
